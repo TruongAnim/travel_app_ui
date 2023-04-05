@@ -4,4 +4,7 @@ class AssetsHelper {
       '${imageAssets}background_splash_screen.png';
   static const String splashCircleImage =
       '${imageAssets}circle_spash_screen.png';
+  static const String intro1 = '${imageAssets}intro1.png';
+  static const String intro2 = '${imageAssets}intro2.png';
+  static const String intro3 = '${imageAssets}intro3.png';
 }
