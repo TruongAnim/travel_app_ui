@@ -3,7 +3,7 @@ import 'package:travel_app_ui/core/helpers/assets_helper.dart';
 import 'package:travel_app_ui/core/helpers/image_helper.dart';
 import 'package:travel_app_ui/core/helpers/local_storage_helper.dart';
 import 'package:travel_app_ui/representation/screen/intro_screen.dart';
-import 'package:travel_app_ui/representation/screen/main_app_screen.dart';
+import 'package:travel_app_ui/representation/screen/main_app.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(const Duration(seconds: 2));
     if (!mounted) return;
     if (ignoreIntroScreen != null && ignoreIntroScreen == true) {
-      Navigator.of(context).pushNamed(MainAppScreen.routeName);
+      Navigator.of(context).pushNamed(MainApp.routeName);
     } else {
       Navigator.of(context).pushNamed(IntroScreen.routerName);
       LocalStorageHelper.setKey('ignoreIntroScreen', true);

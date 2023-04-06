@@ -6,7 +6,7 @@ import 'package:travel_app_ui/core/constants/dismention_constants.dart';
 import 'package:travel_app_ui/core/constants/textstyle_constants.dart';
 import 'package:travel_app_ui/core/helpers/assets_helper.dart';
 import 'package:travel_app_ui/core/helpers/image_helper.dart';
-import 'package:travel_app_ui/representation/screen/main_app_screen.dart';
+import 'package:travel_app_ui/representation/screen/main_app.dart';
 import 'package:travel_app_ui/representation/widgets/button_widget.dart';
 
 class IntroScreen extends StatefulWidget {
@@ -120,8 +120,7 @@ class _IntroScreenState extends State<IntroScreen> {
                         title: snapshot.data! > 1.5 ? 'Get start' : 'Next',
                         onTap: () {
                           if (snapshot.data! > 1.5) {
-                            Navigator.of(context)
-                                .pushNamed(MainAppScreen.routeName);
+                            Navigator.of(context).pushNamed(MainApp.routeName);
                           } else {
                             _pageController.nextPage(
                                 duration: const Duration(milliseconds: 300),
