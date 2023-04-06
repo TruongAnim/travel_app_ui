@@ -27,7 +27,6 @@ class _IntroScreenState extends State<IntroScreen> {
     super.initState();
     _pageController = PageController();
     _pageController.addListener(() {
-      print(_pageController.page);
       _pageStreamController.add((_pageController.page! + 0.5).toInt());
     });
   }
@@ -77,22 +76,19 @@ class _IntroScreenState extends State<IntroScreen> {
               _createPageViewItem(
                 AssetsHelper.intro1,
                 'Book a flight',
-                '''Found a flight that matches your destination 
-      and schedule? Book it instantly.''',
+                '''Found a flight that matches your destination and schedule? Book it instantly.''',
                 Alignment.centerRight,
               ),
               _createPageViewItem(
                 AssetsHelper.intro2,
                 'Find a hotel room',
-                '''Select the day, book your room. We give you 
-      the best price.''',
+                '''Select the day, book your room. We give you the best price.''',
                 Alignment.center,
               ),
               _createPageViewItem(
                 AssetsHelper.intro3,
                 'Enjoy your trip',
-                '''Easy discovering new places and share these 
-      between your friends and travel together.''',
+                '''Easy discovering new places and share these between your friends and travel together.''',
                 Alignment.centerLeft,
               ),
             ],
@@ -120,7 +116,6 @@ class _IntroScreenState extends State<IntroScreen> {
                     initialData: 0,
                     stream: _pageStreamController.stream,
                     builder: (context, snapshot) {
-                      print(snapshot.data);
                       return ButtonWidget(
                         title: snapshot.data! > 1.5 ? 'Get start' : 'Next',
                         onTap: () {
@@ -129,7 +124,7 @@ class _IntroScreenState extends State<IntroScreen> {
                                 .pushNamed(MainAppScreen.routeName);
                           } else {
                             _pageController.nextPage(
-                                duration: Duration(milliseconds: 300),
+                                duration: const Duration(milliseconds: 300),
                                 curve: Curves.easeIn);
                           }
                         },
