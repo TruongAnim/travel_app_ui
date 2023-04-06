@@ -8,7 +8,11 @@ class ColorPalette {
   static const Color dividerColor = Color(0xFFE5E7EB);
   static const Color text1Color = Color(0xFF323B4B);
   static const Color subTitleColor = Color(0xFF838383);
-  static const backgroundScaffodColor = Color(0xfff2f2f2);
+  static const Color backgroundScaffodColor = Color(0xfff2f2f2);
+
+  static const Color itemHotelColor = Color(0xffFE9C5E);
+  static const Color itemPlaneColor = Color(0xffF77777);
+  static const Color itemHotelPlaneColor = Color(0xff3EC8BC);
 }
 
 class Gradients {
