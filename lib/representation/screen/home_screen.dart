@@ -4,6 +4,7 @@ import 'package:travel_app_ui/core/constants/color_constants.dart';
 import 'package:travel_app_ui/core/constants/dismention_constants.dart';
 import 'package:travel_app_ui/core/helpers/assets_helper.dart';
 import 'package:travel_app_ui/core/helpers/image_helper.dart';
+import 'package:travel_app_ui/representation/screen/hotel_booking_screen.dart';
 import 'package:travel_app_ui/representation/screen/hotel_screen.dart';
 import 'package:travel_app_ui/representation/widgets/app_bar_container.dart';
 
@@ -122,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ImageHelper.loadFromAsset(AssetsHelper.icoHotel,
                           height: kMediumIconSize, width: kMediumIconSize),
                       ColorPalette.itemHotelColor, () {
-                Navigator.of(context).pushNamed(HotelScreen.routeName);
+                Navigator.of(context).pushNamed(HotelBookingScreen.routeName);
               }, 'Hotels')),
               const SizedBox(
                 width: kMediumPadding,
