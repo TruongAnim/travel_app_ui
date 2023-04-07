@@ -3,6 +3,7 @@ import 'package:travel_app_ui/representation/screen/hotel_booking_screen.dart';
 import 'package:travel_app_ui/representation/screen/hotel_screen.dart';
 import 'package:travel_app_ui/representation/screen/intro_screen.dart';
 import 'package:travel_app_ui/representation/screen/main_app.dart';
+import 'package:travel_app_ui/representation/screen/select_date_screen.dart';
 import 'representation/screen/splash_screen.dart';
 
 final Map<String, WidgetBuilder> routes = {
@@ -11,4 +12,5 @@ final Map<String, WidgetBuilder> routes = {
   MainApp.routeName: (context) => const MainApp(),
   HotelScreen.routeName: (context) => const HotelScreen(),
   HotelBookingScreen.routeName: (context) => const HotelBookingScreen(),
+  SelectDate.routeName: (context) => SelectDate(),
 };

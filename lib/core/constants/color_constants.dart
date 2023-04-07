@@ -13,6 +13,8 @@ class ColorPalette {
   static const Color itemHotelColor = Color(0xffFE9C5E);
   static const Color itemPlaneColor = Color(0xffF77777);
   static const Color itemHotelPlaneColor = Color(0xff3EC8BC);
+
+  static const Color orangeColor = Color(0xffFE9C5E);
 }
 
 class Gradients {

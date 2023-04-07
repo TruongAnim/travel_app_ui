@@ -44,7 +44,7 @@ class BookingItemWidget extends StatelessWidget {
                 height: 20,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: kDefaultPadding,
             ),
             Column(
