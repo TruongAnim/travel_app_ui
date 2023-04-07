@@ -20,4 +20,10 @@ class AssetsHelper {
   static const String icoLocation = '${iconAssets}ico_location.png';
   static const String icoCalender = '${iconAssets}ico_calender.png';
   static const String icoBed = '${iconAssets}ico_bed.png';
+
+  static const String icoGuest = '${iconAssets}ico_guest.png';
+  static const String icoRoom = '${iconAssets}ico_room.png';
+
+  static const String icoDecrese = '${iconAssets}ico_decrese.png';
+  static const String icoIncrese = '${iconAssets}ico_increse.png';
 }
