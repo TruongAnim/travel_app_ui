@@ -3,6 +3,7 @@ import 'package:travel_app_ui/core/constants/color_constants.dart';
 import 'package:travel_app_ui/core/constants/dismention_constants.dart';
 import 'package:travel_app_ui/core/helpers/assets_helper.dart';
 import 'package:travel_app_ui/representation/screen/guest_and_room_screen.dart';
+import 'package:travel_app_ui/representation/screen/hotels_screen.dart';
 import 'package:travel_app_ui/representation/screen/select_date_screen.dart';
 import 'package:travel_app_ui/representation/widgets/app_bar_container.dart';
 import 'package:travel_app_ui/representation/widgets/booking_item_widget.dart';
@@ -76,7 +77,13 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
             const SizedBox(
               height: kMediumPadding,
             ),
-            const ButtonWidget(title: 'Search'),
+            ButtonWidget(
+              title: 'Search',
+              onTap: () {
+                Navigator.of(context).pushNamed(HotelsScreen.routeName);
+                print('dm');
+              },
+            ),
           ],
         ),
       ),

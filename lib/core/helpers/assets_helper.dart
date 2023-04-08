@@ -26,4 +26,11 @@ class AssetsHelper {
 
   static const String icoDecrese = '${iconAssets}ico_decrese.png';
   static const String icoIncrese = '${iconAssets}ico_increse.png';
+
+  static const String hotel1 = '${imageAssets}hotel1.png';
+  static const String hotel2 = '${imageAssets}hotel2.png';
+  static const String hotel3 = '${imageAssets}hotel3.png';
+
+  static const String icoLocation2 = '${iconAssets}ico_location2.png';
+  static const String icoStar = '${iconAssets}ico_star.png';
 }
