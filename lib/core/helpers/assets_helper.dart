@@ -36,4 +36,9 @@ class AssetsHelper {
 
   static const String hotelDetail = '${imageAssets}hotel_detail.png';
   static const String map = '${imageAssets}map.png';
+
+  static const String icoWifi = '${iconAssets}ico_wifi.png';
+  static const String icoRefund = '${iconAssets}ico_refund.png';
+  static const String icoBreakfast = '${iconAssets}ico_breakfast.png';
+  static const String icoNonsmoke = '${iconAssets}ico_non_smoke.png';
 }

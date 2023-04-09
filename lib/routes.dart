@@ -8,6 +8,7 @@ import 'package:travel_app_ui/representation/screen/hotels_screen.dart';
 import 'package:travel_app_ui/representation/screen/intro_screen.dart';
 import 'package:travel_app_ui/representation/screen/main_app.dart';
 import 'package:travel_app_ui/representation/screen/select_date_screen.dart';
+import 'package:travel_app_ui/representation/screen/select_room_screen.dart';
 import 'representation/screen/splash_screen.dart';
 
 final Map<String, WidgetBuilder> routes = {
@@ -19,6 +20,7 @@ final Map<String, WidgetBuilder> routes = {
   SelectDate.routeName: (context) => SelectDate(),
   GuestAndRoomScreen.routeName: (context) => GuestAndRoomScreen(),
   HotelsScreen.routeName: (context) => const HotelsScreen(),
+  SelectRoomScreen.routeName: (context) => const SelectRoomScreen(),
 };
 
 MaterialPageRoute<dynamic>? generateRouter(RouteSettings settings) {
