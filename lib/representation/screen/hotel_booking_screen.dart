@@ -81,7 +81,6 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
               title: 'Search',
               onTap: () {
                 Navigator.of(context).pushNamed(HotelsScreen.routeName);
-                print('dm');
               },
             ),
           ],

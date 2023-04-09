@@ -4,6 +4,7 @@ import 'package:travel_app_ui/core/constants/dismention_constants.dart';
 import 'package:travel_app_ui/core/helpers/assets_helper.dart';
 import 'package:travel_app_ui/core/helpers/image_helper.dart';
 import 'package:travel_app_ui/data/models/hotel_model.dart';
+import 'package:travel_app_ui/representation/screen/hotel_detail_screen.dart';
 import 'package:travel_app_ui/representation/widgets/button_widget.dart';
 import 'package:travel_app_ui/representation/widgets/dash_line.dart';
 
@@ -86,29 +87,35 @@ class _HotelItemState extends State<HotelItem> {
                   ],
                 ),
                 const DashLineWidget(),
-                Row(children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '\$${widget.hotel.price}',
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20),
-                        ),
-                        const SizedBox(
-                          height: kTopPadding,
-                        ),
-                        const Text('/night'),
-                      ],
+                Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '\$${widget.hotel.price}',
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
+                          const SizedBox(
+                            height: kTopPadding,
+                          ),
+                          const Text('/night'),
+                        ],
+                      ),
                     ),
-                  ),
-                  Expanded(
+                    Expanded(
                       child: ButtonWidget(
-                    title: 'Book a room',
-                    onTap: () {},
-                  )),
-                ])
+                        title: 'Book a room',
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed(HotelDetailScreen.routeName);
+                        },
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
           ),

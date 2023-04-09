@@ -43,7 +43,6 @@ class _HotelsScreenState extends State<HotelsScreen> {
   ];
   @override
   Widget build(BuildContext context) {
-    print('hello');
     return AppBarContainer(
       titleString: 'Hotels',
       emplementLeading: true,
