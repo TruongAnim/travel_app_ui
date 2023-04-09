@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(
               seedColor: ColorPalette.backgroundScaffodColor)),
       routes: routes,
+      onGenerateRoute: generateRouter,
       initialRoute: SplashScreen.routerName,
     );
   }
