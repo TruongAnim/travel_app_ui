@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app_ui/core/constants/color_constants.dart';
 import 'package:travel_app_ui/core/constants/dismention_constants.dart';
+import 'package:travel_app_ui/core/helpers/assets_helper.dart';
+import 'package:travel_app_ui/core/helpers/image_helper.dart';
 import 'package:travel_app_ui/data/models/room_model.dart';
+import 'package:travel_app_ui/representation/screen/home_screen.dart';
+import 'package:travel_app_ui/representation/screen/main_app.dart';
 import 'package:travel_app_ui/representation/widgets/app_bar_container.dart';
+import 'package:travel_app_ui/representation/widgets/button_widget.dart';
+import 'package:travel_app_ui/representation/widgets/room_item.dart';
 
 class CheckoutScreen extends StatelessWidget {
   const CheckoutScreen({super.key, required this.room});
@@ -42,7 +48,7 @@ class CheckoutScreen extends StatelessWidget {
           width: kMinPadding,
         ),
         if (!isEnd)
-          SizedBox(
+          const SizedBox(
             width: kDefaultPadding,
             child: Divider(
               height: 1,
@@ -54,6 +60,66 @@ class CheckoutScreen extends StatelessWidget {
           width: kMinPadding,
         ),
       ],
+    );
+  }
+
+  Widget _buildCheckoutItem(
+      String icon, String content, String btnString, BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(kDefaultPadding),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(kDefaultPadding)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              ImageHelper.loadFromAsset(icon),
+              const SizedBox(
+                width: kDefaultPadding,
+              ),
+              Text(
+                content,
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: kDefaultPadding,
+          ),
+          Container(
+            padding: const EdgeInsets.all(kMinPadding),
+            width: MediaQuery.of(context).size.width * 0.5,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                color: ColorPalette.primaryColor.withOpacity(0.3)),
+            child: Row(
+              children: [
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.white),
+                  child: const Icon(Icons.add),
+                ),
+                const SizedBox(
+                  width: kDefaultPadding,
+                ),
+                Text(
+                  btnString,
+                  style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: ColorPalette.primaryColor),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 
@@ -79,7 +145,37 @@ class CheckoutScreen extends StatelessWidget {
                     )
                     .toList(),
               ],
-            )
+            ),
+            const SizedBox(
+              height: kDefaultPadding,
+            ),
+            RoomItem(
+              roomModel: room,
+              rooms: 1,
+            ),
+            const SizedBox(
+              height: kMediumPadding,
+            ),
+            _buildCheckoutItem(AssetsHelper.contact, 'Contact Details',
+                'Add Contact', context),
+            const SizedBox(
+              height: kMediumPadding,
+            ),
+            _buildCheckoutItem(
+                AssetsHelper.promo, 'Promo Code', 'Add Promo Code', context),
+            const SizedBox(
+              height: kMediumPadding,
+            ),
+            ButtonWidget(
+              title: 'Payment',
+              onTap: () {
+                Navigator.of(context).popUntil(
+                    (route) => route.settings.name == MainApp.routeName);
+              },
+            ),
+            const SizedBox(
+              height: kMediumPadding,
+            ),
           ],
         ),
       ),

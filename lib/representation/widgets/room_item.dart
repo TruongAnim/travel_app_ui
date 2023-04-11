@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:travel_app_ui/core/constants/color_constants.dart';
 import 'package:travel_app_ui/core/constants/dismention_constants.dart';
 import 'package:travel_app_ui/core/helpers/image_helper.dart';
 import 'package:travel_app_ui/data/models/room_model.dart';
@@ -8,8 +10,9 @@ import 'package:travel_app_ui/representation/widgets/dash_line.dart';
 import 'package:travel_app_ui/representation/widgets/hotel_ultility_item.dart';
 
 class RoomItem extends StatelessWidget {
-  const RoomItem({super.key, required this.roomModel});
+  const RoomItem({super.key, required this.roomModel, this.rooms});
   final RoomModel roomModel;
+  final int? rooms;
 
   @override
   Widget build(BuildContext context) {
@@ -88,13 +91,20 @@ class RoomItem extends StatelessWidget {
               ),
               Expanded(
                 flex: 1,
-                child: ButtonWidget(
-                  title: 'Choose',
-                  onTap: () {
-                    Navigator.of(context).pushNamed(CheckoutScreen.routeName,
-                        arguments: roomModel);
-                  },
-                ),
+                child: rooms == null
+                    ? ButtonWidget(
+                        title: 'Choose',
+                        onTap: () {
+                          Navigator.of(context).pushNamed(
+                              CheckoutScreen.routeName,
+                              arguments: roomModel);
+                        },
+                      )
+                    : Text(
+                        '$rooms room',
+                        style: const TextStyle(fontSize: 14),
+                        textAlign: TextAlign.end,
+                      ),
               ),
             ],
           )

@@ -45,4 +45,7 @@ class AssetsHelper {
   static const String room1 = '${imageAssets}room1.png';
   static const String room2 = '${imageAssets}room2.png';
   static const String room3 = '${imageAssets}room3.png';
+
+  static const String contact = '${iconAssets}contact.png';
+  static const String promo = '${iconAssets}promo.png';
 }
