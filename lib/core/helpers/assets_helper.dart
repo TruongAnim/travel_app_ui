@@ -41,4 +41,8 @@ class AssetsHelper {
   static const String icoRefund = '${iconAssets}ico_refund.png';
   static const String icoBreakfast = '${iconAssets}ico_breakfast.png';
   static const String icoNonsmoke = '${iconAssets}ico_non_smoke.png';
+
+  static const String room1 = '${imageAssets}room1.png';
+  static const String room2 = '${imageAssets}room2.png';
+  static const String room3 = '${imageAssets}room3.png';
 }
