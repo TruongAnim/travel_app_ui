@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travel_app_ui/core/constants/dismention_constants.dart';
 import 'package:travel_app_ui/core/helpers/image_helper.dart';
 import 'package:travel_app_ui/data/models/room_model.dart';
+import 'package:travel_app_ui/representation/screen/checkout_screen.dart';
 import 'package:travel_app_ui/representation/widgets/button_widget.dart';
 import 'package:travel_app_ui/representation/widgets/dash_line.dart';
 import 'package:travel_app_ui/representation/widgets/hotel_ultility_item.dart';
@@ -85,9 +86,15 @@ class RoomItem extends StatelessWidget {
                   ],
                 ),
               ),
-              const Expanded(
+              Expanded(
                 flex: 1,
-                child: ButtonWidget(title: 'Choose'),
+                child: ButtonWidget(
+                  title: 'Choose',
+                  onTap: () {
+                    Navigator.of(context).pushNamed(CheckoutScreen.routeName,
+                        arguments: roomModel);
+                  },
+                ),
               ),
             ],
           )
