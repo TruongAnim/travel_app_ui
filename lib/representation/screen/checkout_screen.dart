@@ -130,54 +130,60 @@ class CheckoutScreen extends StatelessWidget {
     return AppBarContainer(
       titleString: 'Checkout',
       emplementLeading: true,
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                ...steps
-                    .map(
-                      (e) => _buildCheckoutStep(
-                          steps.indexOf(e) + 1,
-                          e,
-                          steps.indexOf(e) + 1 == steps.length,
-                          steps.indexOf(e) <= currentStep ? true : false),
-                    )
-                    .toList(),
-              ],
+      child: Column(
+        children: [
+          Row(
+            children: [
+              ...steps
+                  .map(
+                    (e) => _buildCheckoutStep(
+                        steps.indexOf(e) + 1,
+                        e,
+                        steps.indexOf(e) + 1 == steps.length,
+                        steps.indexOf(e) <= currentStep ? true : false),
+                  )
+                  .toList(),
+            ],
+          ),
+          const SizedBox(
+            height: kDefaultPadding,
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  RoomItem(
+                    roomModel: room,
+                    rooms: 1,
+                  ),
+                  const SizedBox(
+                    height: kMediumPadding,
+                  ),
+                  _buildCheckoutItem(AssetsHelper.contact, 'Contact Details',
+                      'Add Contact', context),
+                  const SizedBox(
+                    height: kMediumPadding,
+                  ),
+                  _buildCheckoutItem(AssetsHelper.promo, 'Promo Code',
+                      'Add Promo Code', context),
+                  const SizedBox(
+                    height: kMediumPadding,
+                  ),
+                  ButtonWidget(
+                    title: 'Payment',
+                    onTap: () {
+                      Navigator.of(context).popUntil(
+                          (route) => route.settings.name == MainApp.routeName);
+                    },
+                  ),
+                  const SizedBox(
+                    height: kMediumPadding,
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(
-              height: kDefaultPadding,
-            ),
-            RoomItem(
-              roomModel: room,
-              rooms: 1,
-            ),
-            const SizedBox(
-              height: kMediumPadding,
-            ),
-            _buildCheckoutItem(AssetsHelper.contact, 'Contact Details',
-                'Add Contact', context),
-            const SizedBox(
-              height: kMediumPadding,
-            ),
-            _buildCheckoutItem(
-                AssetsHelper.promo, 'Promo Code', 'Add Promo Code', context),
-            const SizedBox(
-              height: kMediumPadding,
-            ),
-            ButtonWidget(
-              title: 'Payment',
-              onTap: () {
-                Navigator.of(context).popUntil(
-                    (route) => route.settings.name == MainApp.routeName);
-              },
-            ),
-            const SizedBox(
-              height: kMediumPadding,
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

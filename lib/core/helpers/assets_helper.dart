@@ -48,4 +48,9 @@ class AssetsHelper {
 
   static const String contact = '${iconAssets}contact.png';
   static const String promo = '${iconAssets}promo.png';
+
+  static const String korea = '${imageAssets}korea.png';
+  static const String turkey = '${imageAssets}turkey.png';
+  static const String dubai = '${imageAssets}dubai.png';
+  static const String japan = '${imageAssets}japan.png';
 }

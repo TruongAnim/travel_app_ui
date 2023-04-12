@@ -52,6 +52,7 @@ class SelectDate extends StatelessWidget {
             ),
             ButtonWidget(
               title: 'Cancel',
+              opacity: 0.1,
               onTap: () {
                 Navigator.of(context).pop([null, null]);
               },

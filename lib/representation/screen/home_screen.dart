@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:travel_app_ui/core/constants/color_constants.dart';
 import 'package:travel_app_ui/core/constants/dismention_constants.dart';
+import 'package:travel_app_ui/core/constants/textstyle_constants.dart';
 import 'package:travel_app_ui/core/helpers/assets_helper.dart';
 import 'package:travel_app_ui/core/helpers/image_helper.dart';
 import 'package:travel_app_ui/representation/screen/hotel_booking_screen.dart';
-import 'package:travel_app_ui/representation/screen/hotel_screen.dart';
 import 'package:travel_app_ui/representation/widgets/app_bar_container.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,6 +16,93 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final List<Map<String, String>> listImageLeft = [
+    {
+      'name': 'Korea',
+      'image': AssetsHelper.korea,
+    },
+    {
+      'name': 'Dubai',
+      'image': AssetsHelper.dubai,
+    },
+  ];
+  final List<Map<String, String>> listImageRight = [
+    {
+      'name': 'Turkey',
+      'image': AssetsHelper.turkey,
+    },
+    {
+      'name': 'Japan',
+      'image': AssetsHelper.japan,
+    },
+  ];
+  Widget _buidlImageHomScreen(String name, String image) {
+    print(image);
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context)
+            .pushNamed(HotelBookingScreen.routeName, arguments: name);
+      },
+      child: Container(
+        margin: const EdgeInsets.only(bottom: kDefaultPadding),
+        child: Stack(
+          alignment: Alignment.topRight,
+          children: [
+            ImageHelper.loadFromAsset(
+              image,
+              width: double.infinity,
+              fit: BoxFit.fitWidth,
+              radius: BorderRadius.circular(kItemPadding),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(kDefaultPadding),
+              child: Icon(
+                Icons.favorite,
+                color: Colors.red,
+              ),
+            ),
+            Positioned(
+              left: kDefaultPadding,
+              bottom: kDefaultPadding,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    style: TextStyles.defaultStyle.whiteTextColor.bold,
+                  ),
+                  const SizedBox(
+                    height: kItemPadding,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(kMinPadding),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(kMinPadding),
+                      color: Colors.white.withOpacity(0.4),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: const [
+                        Icon(
+                          Icons.star,
+                          color: Color(0xffFFC107),
+                        ),
+                        SizedBox(
+                          width: kItemPadding,
+                        ),
+                        Text('4.5')
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _buildItemCategory(
       Widget icon, Color color, VoidCallback onTap, String title) {
     return GestureDetector(
@@ -139,13 +226,52 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: kMediumPadding,
               ),
               Expanded(
-                  child: _buildItemCategory(
-                      ImageHelper.loadFromAsset(AssetsHelper.icoHotelPlane,
-                          height: kMediumIconSize, width: kMediumIconSize),
-                      ColorPalette.itemHotelPlaneColor,
-                      () {},
-                      'All')),
+                child: _buildItemCategory(
+                    ImageHelper.loadFromAsset(AssetsHelper.icoHotelPlane,
+                        height: kMediumIconSize, width: kMediumIconSize),
+                    ColorPalette.itemHotelPlaneColor,
+                    () {},
+                    'All'),
+              ),
             ],
+          ),
+          const SizedBox(
+            height: kMediumPadding,
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      children: listImageLeft
+                          .map(
+                            (e) => _buidlImageHomScreen(
+                              e['name']!,
+                              e['image']!,
+                            ),
+                          )
+                          .toList(),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: kDefaultPadding,
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: listImageRight
+                          .map(
+                            (e) => _buidlImageHomScreen(
+                              e['name']!,
+                              e['image']!,
+                            ),
+                          )
+                          .toList(),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),

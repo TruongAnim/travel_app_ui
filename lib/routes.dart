@@ -5,7 +5,6 @@ import 'package:travel_app_ui/representation/screen/checkout_screen.dart';
 import 'package:travel_app_ui/representation/screen/guest_and_room_screen.dart';
 import 'package:travel_app_ui/representation/screen/hotel_booking_screen.dart';
 import 'package:travel_app_ui/representation/screen/hotel_detail_screen.dart';
-import 'package:travel_app_ui/representation/screen/hotel_screen.dart';
 import 'package:travel_app_ui/representation/screen/hotels_screen.dart';
 import 'package:travel_app_ui/representation/screen/intro_screen.dart';
 import 'package:travel_app_ui/representation/screen/main_app.dart';
@@ -17,8 +16,6 @@ final Map<String, WidgetBuilder> routes = {
   SplashScreen.routerName: (context) => const SplashScreen(),
   IntroScreen.routerName: (context) => const IntroScreen(),
   MainApp.routeName: (context) => const MainApp(),
-  HotelScreen.routeName: (context) => const HotelScreen(),
-  HotelBookingScreen.routeName: (context) => const HotelBookingScreen(),
   SelectDate.routeName: (context) => SelectDate(),
   GuestAndRoomScreen.routeName: (context) => GuestAndRoomScreen(),
   HotelsScreen.routeName: (context) => const HotelsScreen(),
@@ -39,6 +36,13 @@ MaterialPageRoute<dynamic>? generateRouter(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) {
           return CheckoutScreen(room: room);
+        },
+      );
+    case HotelBookingScreen.routeName:
+      String? destination = settings.arguments as String?;
+      return MaterialPageRoute(
+        builder: (context) {
+          return HotelBookingScreen(destination: destination);
         },
       );
   }

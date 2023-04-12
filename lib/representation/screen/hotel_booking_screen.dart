@@ -11,10 +11,10 @@ import 'package:travel_app_ui/representation/widgets/button_widget.dart';
 import 'package:travel_app_ui/core/extensions/date_extensions.dart';
 
 class HotelBookingScreen extends StatefulWidget {
-  const HotelBookingScreen({super.key});
+  const HotelBookingScreen({super.key, this.destination});
 
   static const String routeName = '/HotelBookingScreen';
-
+  final String? destination;
   @override
   State<HotelBookingScreen> createState() => _HotelBookingScreenState();
 }
@@ -35,7 +35,7 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
             BookingItemWidget(
               icon: AssetsHelper.icoLocation,
               title: 'Destination',
-              content: 'South Korea',
+              content: widget.destination ?? 'Destination',
               color: ColorPalette.itemHotelColor,
               onTap: () {},
             ),

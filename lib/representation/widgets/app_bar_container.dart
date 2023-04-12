@@ -40,16 +40,21 @@ class _AppBarContainerState extends State<AppBarContainer> {
                   Row(
                     children: [
                       if (widget.emplementLeading)
-                        Container(
-                          decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(kDefaultPadding),
-                              ),
-                              color: Colors.white),
-                          padding: const EdgeInsets.all(kItemPadding),
-                          child: const Icon(
-                            FontAwesomeIcons.arrowLeft,
-                            color: Colors.black,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Container(
+                            decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(kDefaultPadding),
+                                ),
+                                color: Colors.white),
+                            padding: const EdgeInsets.all(kItemPadding),
+                            child: Icon(
+                              FontAwesomeIcons.arrowLeft,
+                              color: Colors.grey[600],
+                            ),
                           ),
                         ),
                       Expanded(
@@ -59,7 +64,7 @@ class _AppBarContainerState extends State<AppBarContainer> {
                               Text(
                                 widget.titleString ?? '',
                                 style: const TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 20),
+                                    fontWeight: FontWeight.bold, fontSize: 25),
                               )
                             ],
                           ),
